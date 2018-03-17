@@ -1,0 +1,26 @@
+From 91b036423644502f09061e9da8257e755ca8562e Mon Sep 17 00:00:00 2001
+From: Valentin Churavy <v.churavy@gmail.com>
+Date: Fri, 16 Mar 2018 22:11:23 -0400
+Subject: [PATCH] mingw is not targetting MSVCRT.dll
+
+---
+ include/llvm/ADT/Triple.h | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/include/llvm/ADT/Triple.h b/include/llvm/ADT/Triple.h
+index 00fa9c08299..31e9789b2fe 100644
+--- a/include/llvm/ADT/Triple.h
++++ b/include/llvm/ADT/Triple.h
+@@ -553,8 +553,7 @@ public:
+ 
+   /// Is this a "Windows" OS targeting a "MSVCRT.dll" environment.
+   bool isOSMSVCRT() const {
+-    return isWindowsMSVCEnvironment() || isWindowsGNUEnvironment() ||
+-           isWindowsItaniumEnvironment();
++    return isWindowsMSVCEnvironment() || isWindowsItaniumEnvironment();
+   }
+ 
+   /// Tests whether the OS is Windows.
+-- 
+2.16.2
+

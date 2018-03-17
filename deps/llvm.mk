@@ -515,6 +515,7 @@ $(eval $(call LLVM_PATCH,llvm-D42262-jumpthreading-not-i1)) # remove for 7.0
 $(eval $(call LLVM_PATCH,llvm-PPC-addrspaces)) # PPC
 $(eval $(call LLVM_PATCH,llvm-PR36292-5.0)) # PPC fixes #26249, remove for 6.0
 else ifeq ($(LLVM_VER_SHORT),6.0)
+$(eval $(call LLVM_PATCH,llvm-6.0-mingw32-is-not-MSVCRT)) # 6.0 version of D27296-libssp
 $(eval $(call LLVM_PATCH,llvm-D27629-AArch64-large_model_4.0))
 $(eval $(call LLVM_PATCH,llvm-D34078-vectorize-fdiv))
 $(eval $(call LLVM_PATCH,llvm-6.0-NVPTX-addrspaces)) # NVPTX
